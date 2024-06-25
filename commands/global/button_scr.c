@@ -34,23 +34,26 @@ typedef struct {
 //array of button press types
 static button_press_type_t button_press_types[] = {
     {"short", "button.scr"},
-    {"long", "buttlong.scr"}
+    {"long", "buttlong.scr"},
+    {"double", "buttdubl.scr"}
 };
 
 static const uint8_t num_button_press_types = count_of(button_press_types);
 
 static const char * const usage[]= {
-    "button [short|long] [-f <file>] [-d (hiDe comments)] [-e(xit on error)] [-h(elp)]",
+    "button [short|long|double] [-f <file>] [-d (hiDe comments)] [-e(xit on error)] [-h(elp)]",
     "Assign script file to short button press: button short -f example.scr",
     "Assign script file to long button press: button long -f example.scr",
+    "Assign script file to double tap: button double -f example.scr",
     "Exit script on error option: button short example.scr -e",
-    "Default script files are 'button.scr' and 'buttlong.scr' in the root directory",
+    "Default script files are 'button.scr', 'buttdubt.scr', and 'buttlong.scr' in the root directory",
 };
 
 static const struct ui_help_options options[]= {
 {1,"", T_HELP_BUTTON}, 
     {0,"short",T_HELP_BUTTON_SHORT}, 
-    {0,"long",T_HELP_BUTTON_LONG}, 
+    {0,"long",T_HELP_BUTTON_LONG},
+    {0,"double",T_HELP_BUTTON_DOUBLE},
     {0,"-f",T_HELP_BUTTON_FILE}, 
     {0,"-d",T_HELP_BUTTON_HIDE}, 
     {0,"-e",T_HELP_BUTTON_EXIT}, 
@@ -62,7 +65,7 @@ void button_scr_handler(struct command_result *res){
     if(ui_help_show(res->help_flag,usage,count_of(usage), &options[0],count_of(options) )) return;
     
     //find our action
-	char action[6]; //short or long
+	char action[8]; //short or long
     uint8_t button_code;
     
     //first thing following the command (0) is the action (1)

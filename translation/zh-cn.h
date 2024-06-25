@@ -406,6 +406,7 @@ static char const * const zh_cn[]={
 	[T_HELP_BUTTON]="Assign script file to button press",
 	[T_HELP_BUTTON_SHORT]="Assign script file to short button press",
 	[T_HELP_BUTTON_LONG]="Assign script file to long button press",
+	[T_HELP_BUTTON_DOUBLE]="Assign script file to double tap",
 	[T_HELP_BUTTON_FILE]="Script file to assign to button press",
 	[T_HELP_BUTTON_HIDE]="Hide comments",
 	[T_HELP_BUTTON_EXIT]="Exit script on error",
