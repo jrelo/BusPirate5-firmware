@@ -14,7 +14,7 @@ enum button_codes {
     BP_BUTT_NO_PRESS = 0,
     BP_BUTT_SHORT_PRESS,
     BP_BUTT_LONG_PRESS,
-    //BP_BUTT_DOUBLE_TAP,
+    BP_BUTT_DOUBLE_TAP,
     BP_BUTT_MAX
 };
 
